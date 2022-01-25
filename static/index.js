@@ -179,15 +179,9 @@
     }
 
     w.gameTime = function() {
-        _gameTimeNum--;
-        if (_gameTimeNum <= -9999999) {
-            GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;时间到！';
-            gameOver();
-            GameLayerBG.className += ' flash';
-            createjs.Sound.play("end");
-        } else {
-            GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
-        }
+        
+        if (_gameTimeNum > 0) _gameTimeNum--;
+        GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
 
     w.creatTimeText = function(n) {
